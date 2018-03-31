@@ -59,3 +59,13 @@ def stem_process_text(text, stop=True, stem=True):
         ps = PorterStemmer()
         words = [ps.stem(w) for w in words]
     return " ".join(words)
+
+def process_text_doc2vec(text):
+    """Removes punctuation and uppercase letters. Returns list of words"""
+    cleaned_text = re.sub('(\n|[^.a-zA-Z])', ' ', text)
+    words = cleaned_text.lower()
+    sentences = words.split(".")
+    words = []
+    for sentence in sentences:
+        words.append(sentence.split())
+    return words
