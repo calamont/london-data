@@ -60,12 +60,11 @@ def stem_process_text(text, stop=True, stem=True):
         words = [ps.stem(w) for w in words]
     return " ".join(words)
 
-def process_text_doc2vec(text):
+def process_text_doc2vec(text, stop=False, stem=False):
     """Removes punctuation and uppercase letters. Returns list of words"""
-    cleaned_text = re.sub('(\n|[^.a-zA-Z])', ' ', text)
+    cleaned_text = re.sub('(\n|[^a-zA-Z])', ' ', text)
     words = cleaned_text.lower()
-    sentences = words.split(".")
-    words = []
-    for sentence in sentences:
-        words.append(sentence.split())
+    words = word_tokenize(words)
+    words = [w for w in words if w in english_words]
+
     return words
