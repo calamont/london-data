@@ -1,4 +1,5 @@
 # The Words
+<time datetime="2018-04-07 07:00">7th Apr 2018</time>
 ## Preamble
 There is a real knack to finding an acceptable flat in London on a reasonable budget. The problem which I highlighted in the previous article was that there is so much potential for just terrible, terrible value. In my first round of London flat viewings I was perhaps a little naive. When looking at property listings I didn’t pay much attention to the descriptions given, aside from the basic information necessary, and focused more on the photos. The photos should give a better indication of what the flat is like… right? In that first round of viewings I had the unusual experience of going to shittier flats further and further out from the city, yet the rent was slightly increasing? It seems some unscrupulous estate agents felt they could charge whatever they wanted and, no biggie, some sucker would still take the flat in a week or two. They would be correct. I was that sucker.
 

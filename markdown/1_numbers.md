@@ -1,4 +1,5 @@
 # The Numbers
+<time datetime="2018-02-12 07:00">12th Feb 2018</time>
 
 If you've ever lived in London, or been in conversation with anyone who has, there is a topic that you generally can’t avoid, which is the price of housing. In reality, to someone at my station in life, we’re actually talking about the price of renting. I'm tempted to say I would prefer to talk about the weather, except that weather-chat is already pretty well trodden in this city. I’m not sure what’s third on the list but it probably ain't much more illuminating... And to be clear, when I say the housing market is fucked, I don’t mean like “oh man the prices in Switzerland are fucked, but at least the wages are good". I mean more like "I genuinely don't understand how people could possibly sustain their life here making only minimum wage" kinda fucked.
 
