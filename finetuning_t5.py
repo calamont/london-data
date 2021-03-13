@@ -300,6 +300,8 @@ def main():
             pass
         # TODO: Should we use generate here?
         predictions = trainer.predict(test_dataset=test_dataset).predictions
+        print("\n\nPREDICTIONS\n\n")
+        print(predictions)
 
         output_predict_file = os.path.join(
             training_args.output_dir, f"test_results.txt"
@@ -308,10 +310,9 @@ def main():
             # TODO: write function for saving and uploading results to s3
             with open(output_predict_file, "w") as writer:
                 logger.info(f"***** Test results *****")
-                print(predictions)
-                # for key in sorted(predictions.keys()):
-                #     logger.info("  %s = %s", key, str(predictions[key]))
-                #     writer.write("%s = %s\n" % (key, str(predictions[key])))
+                for key in sorted(predictions.keys()):
+                    logger.info("  %s = %s", key, str(predictions[key]))
+                    writer.write("%s = %s\n" % (key, str(predictions[key])))
         return predictions
 
 
