@@ -64,6 +64,9 @@ class DataTrainingArguments:
         default=False,
         metadata={"help": "Whether to use local files instead of downloading from s3."},
     )
+    sagemaker: Optional[bool] = field(
+        default=False, metadata={"help": "Whether running script in AWS Sagemaker"}
+    )
     train_file: Optional[str] = field(
         default=None, metadata={"help": "A csv file containing the training data."}
     )
@@ -134,6 +137,14 @@ def main():
         (ModelArguments, DataTrainingArguments, TrainingArguments)
     )
     model_args, data_args, training_args = parser.parse_args_into_dataclasses()
+
+    # If running script on Sagemaker
+    if data_args.sagemaker:
+        training_args.output_dir = os.environ['SM_OUTPUT_DATA_DIR']
+        if training_args.do_train:
+            training_args.train_file = os.environ['SM_CHANNEL_TRAIN']
+        if training_args.do_test:
+            training_args.train_file = os.environ['SM_CHANNEL_TEST']
 
     if (
         os.path.exists(training_args.output_dir)
