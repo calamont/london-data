@@ -1,5 +1,8 @@
+torch
+sklearn
 boto3
 pandas
 transformers
 datasets
 jupyterlab
+sentencepiece
