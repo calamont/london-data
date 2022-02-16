@@ -284,38 +284,6 @@ def main():
         )
         trainer.save_model()  # Saves the tokenizer too for easy upload
 
-    if training_args.do_predict:
-        logger.info("*** Test ***")
-        input_ids = tokenizer(
-            "flat - contains - four bedrooms", return_tensors="pt"
-        ).input_ids
-        outputs = model.generate(input_ids)
-        return None
-
-        test_dataset = datasets["test"]
-        # Removing the `label` columns because it's not needed for prediction
-        try:
-            test_dataset.remove_columns_("labels")
-        except ValueError:
-            pass
-        # TODO: Should we use generate here?
-        predictions = trainer.predict(test_dataset=test_dataset).predictions
-        print("\n\nPREDICTIONS\n\n")
-        print(predictions)
-
-        output_predict_file = os.path.join(
-            training_args.output_dir, f"test_results.txt"
-        )
-        if trainer.is_world_process_zero():
-            # TODO: write function for saving and uploading results to s3
-            with open(output_predict_file, "w") as writer:
-                logger.info(f"***** Test results *****")
-                for key in sorted(predictions.keys()):
-                    logger.info("  %s = %s", key, str(predictions[key]))
-                    writer.write("%s = %s\n" % (key, str(predictions[key])))
-        return predictions
-
-
 if __name__ == "__main__":
     main()
 
